@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('links', 'URLController@store');
+Route::get('links/{code}', 'URLController@redirectToLink')
+    ->where('code','[A-Za-z\-\_]+');

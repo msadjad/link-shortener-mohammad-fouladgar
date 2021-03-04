@@ -1,15 +1,14 @@
 <?php
 
-
 namespace App\Services;
-
 
 use App\Link;
 use App\Support\Hasher;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Symfony\Component\VarDumper\Dumper\DataDumperInterface;
 
 class URLService
 {
-
     /**
      * @var Hasher
      */
@@ -37,5 +36,10 @@ class URLService
             $link->code = $data['code'];
             $link->save();
         });
+    }
+
+    public function findCode($code)
+    {
+        return $this->link->where('code', $code)->first();
     }
 }
