@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+### laravel ################################################
+    laravel:
+        image: backend73
+        container_name: laravel
+        ports: 
+            - 8585:80
+        volumes: 
+            - ./:/var/www
